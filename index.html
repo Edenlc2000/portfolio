@@ -52,7 +52,10 @@
 
   .sec-head{display:flex;justify-content:space-between;align-items:baseline;padding:56px 0 18px;gap:12px;border-bottom:1px solid var(--line)}
 
-  .films{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-top:24px}
+  .films{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;padding-top:24px}
+  .films .film{grid-column:span 2}
+  .films .film:nth-child(4){grid-column:2 / span 2}
+  .films .film:nth-child(5){grid-column:4 / span 2}
   .film{
     display:block;text-decoration:none;color:inherit;
     background:var(--slab);border:1px solid var(--line);
@@ -123,9 +126,15 @@
   @keyframes rise{to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){.rise{animation:none;opacity:1;transform:none}*{transition:none!important}}
 
-  @media (max-width:900px){.films{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:900px){
+    .films{grid-template-columns:repeat(2,1fr)}
+    .films .film,.films .film:nth-child(4),.films .film:nth-child(5){grid-column:auto}
+  }
   @media (max-width:720px){.cols{grid-template-columns:1fr;gap:40px}.tally{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:520px){.films{grid-template-columns:1fr;gap:16px}}
+  @media (max-width:520px){
+    .films{grid-template-columns:1fr;gap:16px}
+    .films .film,.films .film:nth-child(4),.films .film:nth-child(5){grid-column:auto}
+  }
 </style>
 </head>
 <body>
@@ -134,14 +143,13 @@
 
   <div class="top">
     <div class="mono">Portfolio</div>
-    <div class="mono">Social Creative · Electronic Music · London from September</div>
+    <div class="mono">Social Creative · Electronic Music · London</div>
   </div>
 
   <section class="hero">
-    <div class="mono kicker rise" style="animation-delay:.05s">Ireland · 2021–2026</div>
     <h1 class="rise" style="animation-delay:.12s">Eden<br>Lyster<br><span class="off">Cummins</span></h1>
     <p class="thesis rise" style="animation-delay:.22s">
-      Social creative in electronic music. I built Project 32 into one of Ireland's fastest-growing rave brands and shot, edited and wrote every piece of content behind it.
+      Social creative in electronic music. I built Project 32 into one of Ireland's fastest-growing electronic music brands and shot, edited and wrote every piece of content behind it.
       <span>I shoot it myself, and I direct crews of up to four when the job is bigger than one person.</span>
     </p>
 
